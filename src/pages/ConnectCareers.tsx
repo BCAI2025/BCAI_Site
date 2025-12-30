@@ -187,19 +187,18 @@ const ConnectCareers = () => {
                           <div className="w-20 h-20 bg-electric-blue/20 rounded-full flex items-center justify-center mx-auto mb-6 glow-electric">
                               <Mail className="h-10 w-10 text-electric-blue" />
                           </div>
-                      <CardTitle className="text-3xl text-white"><span className="gradient-text">Direct Email Inquiry</span></CardTitle>
+                      <CardTitle className="text-3xl text-white"><span className="gradient-text">Contact Us</span></CardTitle>
                       </CardHeader>
 
                       <CardContent className="pt-12 pb-12 text-center">
                           <p className="text-lg text-gray-400 mb-8">
-                              Reach us via email. We typically respond within 24-48 business hours.
+                              Reach us via email:  
                           </p>
-
                           <a
                               href="mailto:info@bioclarity.ai?subject=BioClarity AI Inquiry"
-                              className="inline-flex items-center text-3xl md:text-4xl font-bold text-electric-blue hover:text-electric-blue-glow transition-all border-b-2 border-electric-blue pb-2"
+                              className="text-2xl font-bold text-neon-teal hover:text-neon-teal-glow transition-all border-b-2 border-neon-teal pb-1"
                           >
-                              Contact Us
+                              info@bioclarity.ai
                              
                           </a>
 
