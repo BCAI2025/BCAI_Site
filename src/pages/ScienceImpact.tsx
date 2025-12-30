@@ -221,7 +221,7 @@ const ScienceImpact = () => {
                 </div>
                 
                 <div className="p-8 flex items-center justify-center">
-                  <img src="https://static-us-img.skywork.ai/prod/user/head_picture/2003274718897836032_bispecific_antibody_precision.webp?image_process=quality,q_90/resize,w_1280/format,webp" alt="Bispecific Antibody Precision Engineering" className="w-full max-w-md rounded-lg shadow-lg sk-edit-loading h-[448px] object-cover" />
+                <img src="./images/bispecific_antibody_precision_20251223011615.png" alt="Bispecific Antibody Precision Engineering" className="w-full max-w-md rounded-lg shadow-lg" />
                 </div>
               </div>
             </Card>
