@@ -12,7 +12,7 @@ const Navigation = () => {
         { path: "/what-we-do", label: "What We Do" },
         { path: "/science-impact", label: "Science & Impact" },
         { path: "/the-future", label: "The Future" },
-        { path: "/connect-careers", label: "Contact Us" } // Renamed for clarity
+        { path: "/connect-careers", label: "Careers & Connect" } // Renamed for clarity
     ];
 
     const isActive = (path: string) => location.pathname === path;
@@ -71,5 +71,6 @@ const Navigation = () => {
         </nav>
     );
 };
+
 
 export default Navigation;
