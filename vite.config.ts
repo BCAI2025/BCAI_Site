@@ -9,7 +9,7 @@ import path from "path";
 import { parse } from '@babel/parser';
 import _traverse from '@babel/traverse';
 import _generate from '@babel/generator';
-import * as t from '@babel/types';
+import t from '@babel/types';
 
 
 // CJS/ESM interop for Babel libs
@@ -18,7 +18,7 @@ const generate: typeof _generate.default = ( (_generate as any).default ?? _gene
 
 function cdnPrefixImages(): Plugin {
   const DEBUG = process.env.CDN_IMG_DEBUG === '1';
-  let publicDir = '';              // absolute path to Vite public dir
+  let publicDir = '';               // absolute path to Vite public dir
   const imageSet = new Set<string>(); // stores normalized '/images/...' paths
 
   const isAbsolute = (p: string) =>
@@ -41,10 +41,10 @@ function cdnPrefixImages(): Plugin {
   const toCDN = (p: string, cdn: string) => {
     const n = normalizeRef(p);
     if (isAbsolute(n)) return n;
-    if (!n.startsWith('/images/')) return p;           // not our folder
-    if (!imageSet.has(n)) return p;                    // not an existing file
+    if (!n.startsWith('/images/')) return p;                   // not our folder
+    if (!imageSet.has(n)) return p;                             // not an existing file
     const base = cdn.endsWith('/') ? cdn : cdn + '/';
-    return base + n.slice(1);                          // 'https://cdn/.../images/..'
+    return base + n.slice(1);                                  // 'https://cdn/.../images/..'
   };
 
   const rewriteSrcsetList = (value: string, cdn: string) =>
@@ -207,6 +207,7 @@ function cdnPrefixImages(): Plugin {
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
+    base: '/',
     server: {
       host: "::",
       port: 8080,
