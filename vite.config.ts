@@ -24,27 +24,23 @@ function cdnPrefixImages(): Plugin {
   const isAbsolute = (p: string) =>
     /^(?:[a-z]+:)?\/\//i.test(p) || p.startsWith('data:') || p.startsWith('blob:');
 
-  // normalize a ref like './images/x.png', '../images/x.png', '/images/x.png' -> '/images/x.png'
   const normalizeRef = (p: string) => {
     let s = p.trim();
-    // quick bail-outs
     if (isAbsolute(s)) return s;
-    // strip leading ./ and any ../ segments (we treat public/ as root at runtime)
     s = s.replace(/^(\.\/)+/, '');
     while (s.startsWith('../')) s = s.slice(3);
     if (s.startsWith('/')) s = s.slice(1);
-    // ensure it starts with images/
-    if (!s.startsWith('images/')) return p; // not under images → leave as is
-    return '/' + s; // canonical: '/images/...'
+    if (!s.startsWith('images/')) return p; 
+    return '/' + s; 
   };
 
   const toCDN = (p: string, cdn: string) => {
     const n = normalizeRef(p);
     if (isAbsolute(n)) return n;
-    if (!n.startsWith('/images/')) return p;                   // not our folder
-    if (!imageSet.has(n)) return p;                             // not an existing file
+    if (!n.startsWith('/images/')) return p;                   
+    if (!imageSet.has(n)) return p;                             
     const base = cdn.endsWith('/') ? cdn : cdn + '/';
-    return base + n.slice(1);                                  // 'https://cdn/.../images/..'
+    return base + n.slice(1);                                  
   };
 
   const rewriteSrcsetList = (value: string, cdn: string) =>
@@ -58,12 +54,10 @@ function cdnPrefixImages(): Plugin {
       .join(', ');
 
   const rewriteHtml = (html: string, cdn: string) => {
-    // src / href
     html = html.replace(
       /(src|href)\s*=\s*(['"])([^'"]+)\2/g,
       (_m, k, q, p) => `${k}=${q}${toCDN(p, cdn)}${q}`
     );
-    // srcset
     html = html.replace(
       /(srcset)\s*=\s*(['"])([^'"]+)\2/g,
       (_m, k, q, list) => `${k}=${q}${rewriteSrcsetList(list, cdn)}${q}`
@@ -104,11 +98,8 @@ function cdnPrefixImages(): Plugin {
       },
 
       StringLiteral(path) {
-        // skip object keys: { "image": "..." }
         if (t.isObjectProperty(path.parent) && path.parentKey === 'key' && !path.parent.computed) return;
-        // skip import/export sources
         if (t.isImportDeclaration(path.parent) || t.isExportAllDeclaration(path.parent) || t.isExportNamedDeclaration(path.parent)) return;
-        // skip inside JSX attribute (already handled)
         if (path.findParent(p => p.isJSXAttribute())) return;
 
         const before = path.node.value;
@@ -117,7 +108,6 @@ function cdnPrefixImages(): Plugin {
       },
 
       TemplateLiteral(path) {
-        // handle `"/images/foo.png"` as template with NO expressions
         if (path.node.expressions.length) return;
         const raw = path.node.quasis.map(q => q.value.cooked ?? q.value.raw).join('');
         const after = toCDN(raw, cdn);
@@ -136,7 +126,6 @@ function cdnPrefixImages(): Plugin {
   };
 
   async function collectPublicImagesFrom(dir: string) {
-    // Recursively collect every file under public/images into imageSet as '/images/relpath'
     const imagesDir = nodePath.join(dir, 'images');
     const stack = [imagesDir];
     while (stack.length) {
@@ -145,7 +134,7 @@ function cdnPrefixImages(): Plugin {
       try {
         entries = await fs.readdir(cur, { withFileTypes: true });
       } catch {
-        continue; // images/ may not exist
+        continue; 
       }
       for (const ent of entries) {
         const full = nodePath.join(cur, ent.name);
@@ -153,10 +142,9 @@ function cdnPrefixImages(): Plugin {
           stack.push(full);
         } else if (ent.isFile()) {
           const rel = nodePath.relative(dir, full).split(nodePath.sep).join('/');
-          const canonical = '/' + rel; // '/images/...'
+          const canonical = '/' + rel; 
           imageSet.add(canonical);
-          // also add variant without leading slash for safety
-          imageSet.add(canonical.slice(1)); // 'images/...'
+          imageSet.add(canonical.slice(1)); 
         }
       }
     }
@@ -165,10 +153,10 @@ function cdnPrefixImages(): Plugin {
   return {
     name: 'cdn-prefix-images-existing',
     apply: 'build',
-    enforce: 'pre', // run before @vitejs/plugin-react
+    enforce: 'pre', 
 
     configResolved(cfg) {
-      publicDir = cfg.publicDir; // absolute
+      publicDir = cfg.publicDir; 
       if (DEBUG) console.log('[cdn] publicDir =', publicDir);
     },
 
@@ -207,7 +195,7 @@ function cdnPrefixImages(): Plugin {
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
-    base: '/',
+    base: '/BCAI_Site/', // <--- THIS MATCHES YOUR GITHUB REPO NAME
     server: {
       host: "::",
       port: 8080,
@@ -221,16 +209,11 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
-        // Proxy react-router-dom to our wrapper
         "react-router-dom": path.resolve(__dirname, "./src/lib/react-router-dom-proxy.tsx"),
-        // Original react-router-dom under a different name
         "react-router-dom-original": "react-router-dom",
       },
     },
     define: {
-      // Define environment variables for build-time configuration
-      // In production, this will be false by default unless explicitly set to 'true'
-      // In development and test, this will be true by default
       __ROUTE_MESSAGING_ENABLED__: JSON.stringify(
         mode === 'production' 
           ? process.env.VITE_ENABLE_ROUTE_MESSAGING === 'true'
