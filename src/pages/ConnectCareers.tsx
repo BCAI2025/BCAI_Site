@@ -180,31 +180,17 @@ const ConnectCareers = () => {
           </div>
 
           {/* Main Contact Section */}
-          
-              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <Card className="card-gradient border-electric-blue/30 shadow-2xl">
-                      <CardHeader className="text-center border-b border-electric-blue/10 pb-8">
-                          <div className="w-20 h-20 bg-electric-blue/20 rounded-full flex items-center justify-center mx-auto mb-6 glow-electric">
-                              <Mail className="h-10 w-10 text-electric-blue" />
-                          </div>
-                      <CardTitle className="text-3xl text-white"><span className="gradient-text">Contact Us</span></CardTitle>
-                      </CardHeader>
-
-                      <CardContent className="pt-12 pb-12 text-center">
-                          <p className="text-lg text-gray-400 mb-8">
-                              Reach us via email:  
-                          </p>
-                          <a
-                              href="mailto:info@bioclarity.ai?subject=BioClarity AI Inquiry"
-                              className="text-2xl font-bold text-neon-teal hover:text-neon-teal-glow transition-all border-b-2 border-neon-teal pb-1"
-                          >
-                              info@bioclarity.ai
-                             
-                          </a>
-
-                      </CardContent>
-                  </Card>
-              </div>
+          <div className="w-20 h-20 bg-electric-blue/20 rounded-full flex items-center justify-center mx-auto mb-6 glow-electric">
+               <Mail className="h-10 w-10 text-electric-blue" />
+                          
+                      <p className="text-3xl text-white"><span className="gradient-text">Contact Us </span></p>
+                     <a
+                        href="mailto:info@bioclarity.ai?subject=BioClarity AI Inquiry"
+                        className="text-2xl font-bold text-neon-teal hover:text-neon-teal-glow transition-all border-b-2 border-neon-teal pb-1"
+                     >
+                          info@bioclarity.ai
+                     </a>
+            </div>               
 
       </section>
 
