@@ -97,7 +97,7 @@ const ConnectCareers = () => {
                 </div>
                 
                 <Button className="w-full bg-electric-blue hover:bg-electric-blue-glow text-white transition-smooth">
-                  Apply Now
+                  Opening Soon
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </CardContent>
@@ -141,7 +141,7 @@ const ConnectCareers = () => {
                 </div>
                 
                 <Button className="w-full bg-neon-teal hover:bg-neon-teal-glow text-charcoal transition-smooth">
-                  Apply Now
+                  Opening Soon
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </CardContent>
@@ -152,117 +152,30 @@ const ConnectCareers = () => {
           </div>
         </div>
       </section>
-      
-      {/* Contact Form */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                <span className="gradient-text">Get in Touch</span>
-              </h2>
-              
-              <p className="text-lg text-gray-300 mb-8">
-                Ready to transform drug discovery? Whether you're interested in partnerships, 
-                collaborations, or joining our team, we'd love to hear from you.
-              </p>
-              
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-electric-blue/20 rounded-lg flex items-center justify-center">
-                    <Mail className="h-6 w-6 text-electric-blue" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white">Email</h3>
-                    <p className="text-gray-400">info@bioclarity.ai</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">LocationBoston, MA</div>
-                
-                
-              </div>
-              
-              <div className="mt-8 p-6 bg-charcoal-light/50 rounded-lg border border-electric-blue/20">
-                <h3 className="font-semibold text-white mb-3">Our Culture</h3>
-                <p className="text-gray-300 text-sm">
-                  We believe in the power of interdisciplinary collaboration. Our team combines 
-                  deep expertise in AI, biology, chemistry, and medicine to tackle the most 
-                  challenging problems in drug discovery. We move fast, think big, and always 
-                  keep patient impact at the center of everything we do.
-                </p>
-              </div>
-            </div>
             
-            {/* Contact Form */}
-            <Card className="card-gradient border-electric-blue/30">
-              <CardHeader>
-                <CardTitle className="text-white">Send us a message</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="name" className="text-white">Name *</Label>
-                      <Input id="name" name="name" value={formData.name} onChange={handleInputChange} className="bg-charcoal border-electric-blue/30 text-white focus:border-electric-blue" required />
-                    </div>
-                    <div>
-                      <Label htmlFor="email" className="text-white">Email *</Label>
-                      <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} className="bg-charcoal border-electric-blue/30 text-white focus:border-electric-blue" required />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="company" className="text-white">Company/Organization</Label>
-                    <Input id="company" name="company" value={formData.company} onChange={handleInputChange} className="bg-charcoal border-electric-blue/30 text-white focus:border-electric-blue" />
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="type" className="text-white">Inquiry Type</Label>
-                    <select id="type" name="type" value={formData.type} onChange={handleInputChange} className="w-full px-3 py-2 bg-charcoal border border-electric-blue/30 text-white rounded-md focus:border-electric-blue focus:outline-none">
-                      <option value="partnership">Partnership Opportunity</option>
-                      <option value="career">Career Inquiry</option>
-                      <option value="collaboration">Research Collaboration</option>
-                      <option value="general">General Inquiry</option>
-                    </select>
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="message" className="text-white">Message *</Label>
-                    <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} rows={5} className="bg-charcoal border-electric-blue/30 text-white focus:border-electric-blue" placeholder="Tell us about your project, goals, or how we can help..." required />
-                  </div>
-                  
-                  <Button type="submit" className="w-full bg-electric-blue hover:bg-electric-blue-glow text-white py-3 text-lg glow-electric transition-smooth">
-                    Send Message
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-      
-      {/* Newsletter Signup */}
+      {/* LinkedIn Follow */}
       <section className="py-16 bg-charcoal-light/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Stay Updated on Our <span className="gradient-text">Latest Breakthroughs</span>
-          </h2>
-          
-          <p className="text-lg text-gray-300 mb-8">
-            Subscribe to our newsletter for the latest updates on AI-driven drug discovery, 
-            research publications, and partnership opportunities.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <Input type="email" placeholder="Enter your email" className="bg-charcoal border-electric-blue/30 text-white focus:border-electric-blue" />
-            <Button className="bg-neon-teal hover:bg-neon-teal-glow text-charcoal px-6 transition-smooth">
-              Subscribe
-            </Button>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  Stay Updated on Our <span className="gradient-text">Latest Breakthroughs</span>
+              </h2>
+
+              <p className="text-lg text-gray-300 mb-8">
+                  Follow us on LinkedIn for the latest updates on AI-driven drug discovery,
+                  research publications, and partnership opportunities.
+              </p>
+
+              <div className="flex justify-center">
+                  <a
+                      href="https://www.linkedin.com/company/bioclarity-ai"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-2xl font-bold text-neon-teal hover:text-neon-teal-glow transition-all border-b-2 border-neon-teal pb-1"
+                  >
+                      BioClarity AI on LinkedIn
+                  </a>
+              </div>
           </div>
-        </div>
       </section>
     </div>;
 };

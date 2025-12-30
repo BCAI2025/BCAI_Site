@@ -70,6 +70,31 @@ const ContactUs = () => {
                     </Card>
                 </div>
             </section>
+
+            {/* LinkedIn Follow */}
+            <section className="py-16 bg-charcoal-light/30">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                        Stay Updated on Our <span className="gradient-text">Latest Breakthroughs</span>
+                    </h2>
+
+                    <p className="text-lg text-gray-300 mb-8">
+                        Follow us on LinkedIn for the latest updates on AI-driven drug discovery,
+                        research publications, and partnership opportunities.
+                    </p>
+
+                    <div className="flex justify-center">
+                        <a
+                            href="https://www.linkedin.com/company/bioclarity-ai"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-2xl font-bold text-neon-teal hover:text-neon-teal-glow transition-all border-b-2 border-neon-teal pb-1"
+                        >
+                            BioClarity AI on LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };
