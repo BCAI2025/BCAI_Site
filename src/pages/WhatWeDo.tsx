@@ -214,14 +214,14 @@ const WhatWeDo = () => {
               </CardContent>
             </Card>
             
-            {/* Knowledge Systems (Dis2Vec) */}
+            {/* Virtual Cell Perturbation */}
             <Card className="card-gradient border-neon-teal/30 hover:border-neon-teal/50 transition-smooth group">
               <CardHeader className="pb-4">
                 <div className="flex items-center space-x-3 mb-3">
                   <div className="w-12 h-12 bg-neon-teal/20 rounded-lg flex items-center justify-center glow-teal">
                     <Brain className="h-6 w-6 text-neon-teal" />
                   </div>
-                  <CardTitle className="text-white text-xl">Knowledge Systems (Dis2Vec)</CardTitle>
+                  <CardTitle className="text-white text-xl">Virtual Cell Perturbation</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
