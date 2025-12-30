@@ -98,7 +98,7 @@ const ConnectCareers = () => {
                 
                 <Button className="w-full bg-electric-blue hover:bg-electric-blue-glow text-white transition-smooth">
                   Opening Soon
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  {/* <ArrowRight className="ml-2 h-4 w-4" /> */}
                 </Button>
               </CardContent>
             </Card>
@@ -142,7 +142,7 @@ const ConnectCareers = () => {
                 
                 <Button className="w-full bg-neon-teal hover:bg-neon-teal-glow text-charcoal transition-smooth">
                   Opening Soon
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  {/* <ArrowRight className="ml-2 h-4 w-4" /> */}
                 </Button>
               </CardContent>
             </Card>
