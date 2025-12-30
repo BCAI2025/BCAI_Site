@@ -40,7 +40,7 @@ function cdnPrefixImages(): Plugin {
     if (!n.startsWith('/images/')) return p;                   
     if (!imageSet.has(n)) return p;                             
     const base = cdn.endsWith('/') ? cdn : cdn + '/';
-    return base + n.slice(1);                                  
+    return base + n.slice(1);                                   
   };
 
   const rewriteSrcsetList = (value: string, cdn: string) =>
@@ -195,7 +195,7 @@ function cdnPrefixImages(): Plugin {
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
-    base: '/BCAI_Site/', // <--- THIS MATCHES YOUR GITHUB REPO NAME
+    base: '/', // Updated to root for custom domain bioclarity.ai
     server: {
       host: "::",
       port: 8080,
