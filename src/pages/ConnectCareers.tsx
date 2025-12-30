@@ -153,6 +153,52 @@ const ConnectCareers = () => {
         </div>
       </section>
             
+      {/* Main Contact Section */}
+      <section className="py-16">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <Card className="card-gradient border-electric-blue/30 shadow-2xl">
+                  <CardHeader className="text-center border-b border-electric-blue/10 pb-8">
+                      <div className="w-20 h-20 bg-electric-blue/20 rounded-full flex items-center justify-center mx-auto mb-6 glow-electric">
+                          <Mail className="h-10 w-10 text-electric-blue" />
+                      </div>
+                      <CardTitle className="text-3xl text-white">Direct Email Inquiry</CardTitle>
+                  </CardHeader>
+
+                  <CardContent className="pt-12 pb-12 text-center">
+                      <p className="text-lg text-gray-400 mb-8">
+                          Click the link below to send an email directly to our team.
+                          We typically respond within 24-48 business hours.
+                      </p>
+
+                      <a
+                          href="mailto:info@bioclarity.ai?subject=BioClarity AI Inquiry"
+                          className="inline-flex items-center text-3xl md:text-4xl font-bold text-electric-blue hover:text-electric-blue-glow transition-all border-b-2 border-electric-blue pb-2"
+                      >
+                          info@bioclarity.ai
+                          <ArrowRight className="ml-4 h-8 w-8" />
+                      </a>
+
+                      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 text-left border-t border-electric-blue/10 pt-12">
+                          <div>
+                              <h3 className="font-semibold text-white text-xl mb-4">Location</h3>
+                              <div className="flex items-start space-x-3 text-gray-300">
+                                  <MapPin className="h-6 w-6 text-electric-blue shrink-0" />
+                                  <span>Boston, MA<br />United States</span>
+                              </div>
+                          </div>
+                          <div>
+                              <h3 className="font-semibold text-white text-xl mb-4">Our Mission</h3>
+                              <p className="text-gray-300 text-sm leading-relaxed">
+                                  BioClarity AI is dedicated to accelerating the development of precision medicines
+                                  through the seamless integration of generative biology and advanced radiochemistry.
+                              </p>
+                          </div>
+                      </div>
+                  </CardContent>
+              </Card>
+          </div>
+      </section>
+
       {/* LinkedIn Follow */}
       <section className="py-16 bg-charcoal-light/30">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
